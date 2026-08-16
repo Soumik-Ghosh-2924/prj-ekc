@@ -6,6 +6,7 @@ metadata:
 spec:
   project: default
 
+
   source:
     repoURL: https://github.com/Soumik-Ghosh-2924/prj-ekc.git
     targetRevision: HEAD
