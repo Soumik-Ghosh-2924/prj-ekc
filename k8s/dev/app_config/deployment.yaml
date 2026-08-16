@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ekc-app
+spec:
+  selector:
+    matchLabels:
+      app: ekc-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: ekc-app
+    spec:
+      containers:
+        - name: ekc-app
+          image: dockersg6/engineering-knowledge-compiler:1.0-SNAPSHOT
+          ports:
+            - containerPort: 8080
