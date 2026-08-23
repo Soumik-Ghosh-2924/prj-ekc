@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: ekc-app
-          image: dockersg6/engineering-knowledge-compiler:21378a9
+          image: dockersg6/engineering-knowledge-compiler:e0354c8
           ports:
             - containerPort: 8080
