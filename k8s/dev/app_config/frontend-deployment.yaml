@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ekc-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ekc-frontend
+  template:
+    metadata:
+      labels:
+        app: ekc-frontend
+    spec:
+      containers:
+        - name: ekc-frontend
+          image: dockersg6/engineering-knowledge-compiler-ui:dev
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
