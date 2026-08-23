@@ -22,7 +22,7 @@ spec:
                 name: ekc-app-service
                 port:
                   number: 80
-          - path: /home
+          - path: /home/
             pathType: Prefix
             backend:
               service:
