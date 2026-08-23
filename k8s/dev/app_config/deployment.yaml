@@ -7,6 +7,7 @@ spec:
     matchLabels:
       app: ekc-app
   replicas: 2
+  revisionHistoryLimit: 1
   template:
     metadata:
       labels:

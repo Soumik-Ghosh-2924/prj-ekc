@@ -4,6 +4,7 @@ metadata:
   name: ekc-frontend
 spec:
   replicas: 2
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: ekc-frontend
