@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ekc-frontend
-          image: dockersg6/engineering-knowledge-compiler-ui:dev
+          image: dockersg6/engineering-knowledge-compiler:e0354c8
           imagePullPolicy: Always
           ports:
             - name: http
