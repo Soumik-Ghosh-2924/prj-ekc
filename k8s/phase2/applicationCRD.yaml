@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ekc-phase2-preview
+  namespace: app-ekc-default
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Soumik-Ghosh-2924/prj-ekc.git
+    targetRevision: codex/phase2-preview
+    path: k8s/phase2/app_config
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: app-ekc-phase2
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
