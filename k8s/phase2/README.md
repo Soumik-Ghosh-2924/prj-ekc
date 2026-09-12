@@ -9,7 +9,7 @@ This overlay is deliberately isolated from the current MVP:
 
 Before a preview sync, build the UI with `VITE_PHASE2_ENABLED=true` and
 `NGINX_CONFIG=nginx.phase2.conf`, publish both
-backend and UI images with the commit-based tag
-`phase2-iteration2-79725b5`. Validate through a
+backend image as `phase2-iteration2-79725b5` and UI image as
+`phase2-iteration2-bcd8732`. Validate through a
 local port-forward first. Deleting the `ekc-phase2-preview` Argo application and the
 `app-ekc-phase2` namespace rolls back the preview without touching the MVP.
