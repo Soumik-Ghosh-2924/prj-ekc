@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: dockersg6/engineering-knowledge-compiler:phase2-preview-f00ce86
+          image: dockersg6/engineering-knowledge-compiler:phase2-iteration2-ce3a147
           imagePullPolicy: Always
           env:
             - name: EKC_PHASE2_ENABLED
