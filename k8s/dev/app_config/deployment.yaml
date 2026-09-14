@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: ekc-app
   replicas: 2
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 2
   template:
     metadata:
       labels:
@@ -15,6 +15,30 @@ spec:
     spec:
       containers:
         - name: ekc-app
-          image: dockersg6/engineering-knowledge-compiler:phase0-v2-b4bf330
+          image: dockersg6/engineering-knowledge-compiler:phase2-review-03d0830
+          imagePullPolicy: Always
+          env:
+            - name: EKC_PHASE2_ENABLED
+              value: "true"
           ports:
-            - containerPort: 8080
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi

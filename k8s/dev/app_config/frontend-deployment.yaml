@@ -4,7 +4,7 @@ metadata:
   name: ekc-frontend
 spec:
   replicas: 2
-  revisionHistoryLimit: 1
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: ekc-frontend
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: ekc-frontend
-          image: dockersg6/engineering-knowledge-compiler-ui:phase0-v3-a1e8d7e
+          image: dockersg6/engineering-knowledge-compiler-ui:phase2-prod-03d0830
           imagePullPolicy: Always
           ports:
             - name: http
