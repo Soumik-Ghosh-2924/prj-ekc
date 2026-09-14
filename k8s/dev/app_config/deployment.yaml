@@ -6,7 +6,9 @@ spec:
   selector:
     matchLabels:
       app: ekc-app
-  replicas: 2
+  # Phase 2 workspace and analysis state is process-local. Keep a single API
+  # replica until that state is moved to a shared persistence boundary.
+  replicas: 1
   revisionHistoryLimit: 2
   template:
     metadata:
