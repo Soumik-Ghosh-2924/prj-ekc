@@ -17,11 +17,19 @@ spec:
     spec:
       containers:
         - name: ekc-app
-          image: dockersg6/engineering-knowledge-compiler:phase2-review-03d0830
+          image: dockersg6/engineering-knowledge-compiler:stability-f39b034
           imagePullPolicy: Always
           env:
             - name: EKC_PHASE2_ENABLED
               value: "true"
+            - name: COMPILER_ANALYSIS_MAX_SOURCE_FILES
+              value: "2000"
+            - name: COMPILER_ANALYSIS_MAX_SOURCE_BYTES
+              value: "52428800"
+            - name: COMPILER_WORKSPACE_ROOT
+              value: "/workspace"
+            - name: JAVA_TOOL_OPTIONS
+              value: "-XX:MaxRAMPercentage=70 -XX:+ExitOnOutOfMemoryError"
           ports:
             - name: http
               containerPort: 8080
@@ -44,3 +52,10 @@ spec:
             limits:
               cpu: "1"
               memory: 1Gi
+          volumeMounts:
+            - name: compiler-workspace
+              mountPath: /workspace
+      volumes:
+        - name: compiler-workspace
+          emptyDir:
+            sizeLimit: 2Gi
